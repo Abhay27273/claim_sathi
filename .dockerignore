@@ -1,0 +1,15 @@
+.env
+.git/
+var/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+node_modules/
+.next/
+dist/
+build/
+*.log
+apps/web/

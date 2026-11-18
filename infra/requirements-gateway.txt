@@ -1,0 +1,21 @@
+# Subset of the root requirements.txt for deploying services/gateway only.
+# Excludes pipecat-ai[sarvam,groq] -- that's services/voice/, which main.py
+# never imports. Keeping it out avoids pulling its audio/video dependency
+# tree into a container that doesn't need it.
+fastapi
+uvicorn[standard]
+openai>=1.30
+langgraph
+psycopg[binary]
+redis
+qdrant-client
+fastembed
+pypdfium2
+pillow
+pytesseract
+pydantic>=2
+pyyaml
+requests
+python-dotenv
+python-dateutil
+alembic

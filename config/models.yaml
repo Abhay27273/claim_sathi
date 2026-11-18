@@ -1,0 +1,19 @@
+# Maps each pipeline task to the Groq Cloud model that handles it (api.groq.com,
+# NOT xAI/Grok -- see services/orchestrator/groq_client.py). Confirmed live against
+# three separate GROQ_API_KEY* accounts on 2026-11-17: only text models are active
+# (openai/gpt-oss-120b, gpt-oss-20b, qwen/qwen3.8-27b, whisper-*, orpheus-*) --
+# no vision model. classify/extract now read Tesseract-OCR'd text (ocr.py)
+# instead of page images -- see IMPLEMENTATION_PLAN.md section 3/18 history.
+tasks:
+  classify:
+    model: openai/gpt-oss-20b
+    tier: budget
+  extract:
+    model: openai/gpt-oss-20b
+    tier: budget
+  evidence_gap:
+    model: openai/gpt-oss-20b
+    tier: budget
+  draft:
+    model: openai/gpt-oss-120b
+    tier: flagship

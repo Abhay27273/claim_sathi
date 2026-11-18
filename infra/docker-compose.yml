@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: claimsaathi
+      POSTGRES_PASSWORD: claimsaathi
+      POSTGRES_DB: claimsaathi
+    ports:
+      # Host port 5433, not 5432 -- this machine already runs a native Postgres
+      # service bound to 127.0.0.1:5432, which intercepts "localhost" connections
+      # ahead of Docker's port-forward. Avoid touching that pre-existing service.
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  postgres_data:
+  qdrant_data:
