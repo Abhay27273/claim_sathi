@@ -18,7 +18,7 @@ import os
 import uuid
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, Response, UploadFile
+from fastapi import Depends, FastAPI, File, Form, HTTPException, Query, Request, Response, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
@@ -459,9 +459,9 @@ def resolve_review(case_id: str, body: ReviewResolution):
 
 @app.get("/webhook/whatsapp")
 def whatsapp_verify(
-    hub_mode: str = "",
-    hub_verify_token: str = "",
-    hub_challenge: str = "",
+    hub_mode: str = Query(default="", alias="hub.mode"),
+    hub_verify_token: str = Query(default="", alias="hub.verify_token"),
+    hub_challenge: str = Query(default="", alias="hub.challenge"),
 ):
     try:
         challenge = whatsapp.verify_webhook_challenge(hub_mode, hub_verify_token, hub_challenge)
