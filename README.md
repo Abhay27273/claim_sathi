@@ -7,7 +7,7 @@ Bima Bharosa, and the Insurance Ombudsman.
 Full product and technical plan: [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) --
 **read the PIVOT LOG and SECURITY HARDENING PASS notes near the top first**, they
 correct several things the rest of the document still describes in its original form.
-
+a
 ## Quickstart
 
 ```bash
