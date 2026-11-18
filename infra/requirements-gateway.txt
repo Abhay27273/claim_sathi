@@ -3,6 +3,7 @@
 # never imports. Keeping it out avoids pulling its audio/video dependency
 # tree into a container that doesn't need it.
 fastapi
+python-multipart
 uvicorn[standard]
 openai>=1.30
 langgraph
